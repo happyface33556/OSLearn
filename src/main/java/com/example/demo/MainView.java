@@ -22,10 +22,10 @@ public class MainView extends Composite<LoginOverlay> {
 
         loginOverlay.addLoginListener(event -> {
             if ("user".equals(event.getUsername())) {
-                UI.getCurrent().navigate("userSubmission");
+                UI.getCurrent().navigate("student");
             }
             else if ("admin".equals(event.getUsername())) {
-                UI.getCurrent().navigate("userSubmission");
+                UI.getCurrent().navigate("admin");
             }
             else {
                 Notification.show("Wrong Credentials. Please Try Again.");
