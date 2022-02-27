@@ -1,5 +1,6 @@
 package com.example.demo.layouts;
 
+import com.example.demo.views.LoginView;
 import com.example.demo.views.admin.AdminView;
 import com.example.demo.views.admin.AllSubmissionsAdminView;
 import com.example.demo.views.admin.PendingView;
@@ -35,12 +36,14 @@ public class AdminLayout extends AppLayout {
         RouterLink newSub = new RouterLink("Pending Submissions", PendingView.class); //todo: PendingSubmissions
         RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsAdminView.class); //todo: allSubmissions
         RouterLink search = new RouterLink("Search", SearchAdminView.class); //todo: create search
+        RouterLink logout = new RouterLink("Logout", LoginView.class);
 
         addToDrawer(new VerticalLayout(
                 home,
                 newSub,
                 allSub,
-                search
+                search,
+                logout
         ));
     }
 }

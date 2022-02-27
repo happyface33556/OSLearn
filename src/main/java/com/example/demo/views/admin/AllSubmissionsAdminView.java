@@ -5,6 +5,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "all-submissions-admin", layout = AdminLayout.class)
-public class AllSubmissionsAdminView extends VerticalLayout {
+public class AllSubmissionsAdminView extends VerticalLayout { //todo:
 
 }

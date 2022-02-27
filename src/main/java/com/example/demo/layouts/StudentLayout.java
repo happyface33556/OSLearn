@@ -1,5 +1,6 @@
 package com.example.demo.layouts;
 
+import com.example.demo.views.LoginView;
 import com.example.demo.views.student.*;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -39,18 +40,20 @@ public class StudentLayout extends AppLayout {
     }
 
     private void createDrawer() { //todo: new tabs like MySubmissions, SubmissionSearch, etc.
-        RouterLink home = new RouterLink("Home", StudentView.class); //todo: create home view
-        RouterLink myCourse = new RouterLink("My Courses", MyCoursesView.class); //todo: create courses view
-        RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsStudentView.class); //todo: create all submissions
-        RouterLink mySub = new RouterLink("My Submissions", MySubmissionsView.class); //todo: create my submissions
-        RouterLink search = new RouterLink("Search", SearchStudentView.class); //todo: create submission search
+        RouterLink home = new RouterLink("Home", StudentView.class);
+        RouterLink myCourse = new RouterLink("My Courses", MyCoursesView.class);
+        RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsStudentView.class);
+        RouterLink mySub = new RouterLink("My Submissions", MySubmissionsView.class);
+        RouterLink search = new RouterLink("Search", SearchStudentView.class);
+        RouterLink logout = new RouterLink("Logout", LoginView.class);
 
         addToDrawer(new VerticalLayout(
                 home,
                 myCourse,
                 allSub,
                 mySub,
-                search
+                search,
+                logout
         ));
     }
 }

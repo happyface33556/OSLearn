@@ -5,6 +5,6 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "student-search", layout = StudentLayout.class)
-public class SearchStudentView extends VerticalLayout {
+public class SearchStudentView extends VerticalLayout { //todo:
 
 }

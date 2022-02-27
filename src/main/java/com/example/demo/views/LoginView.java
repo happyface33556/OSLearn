@@ -9,8 +9,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @Route(value = "")
-@PageTitle("Login")
-public class LoginView extends Composite<LoginOverlay> {
+@PageTitle("Login | OSLearn")
+public class LoginView extends Composite<LoginOverlay> { //todo: add actual security
     public LoginView() {
         LoginOverlay loginOverlay = getContent();
         loginOverlay.setTitle("OSLearn");
