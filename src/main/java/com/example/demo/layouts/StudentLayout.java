@@ -1,6 +1,8 @@
 package com.example.demo.layouts;
 
-import com.example.demo.views.student.AllSubmissionsViewStudent;
+import com.example.demo.views.student.AllSubmissionsStudentView;
+import com.example.demo.views.student.MySubmissionsView;
+import com.example.demo.views.student.SearchStudentView;
 import com.example.demo.views.student.SubmissionView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -29,11 +31,15 @@ public class StudentLayout extends AppLayout {
 
     private void createDrawer() { //todo: new tabs like MySubmissions, SubmissionSearch, etc.
         RouterLink newSub = new RouterLink("New Submission", SubmissionView.class);
-        RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsViewStudent.class); //todo: allSubmissions
+        RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsStudentView.class); //todo: create all submissions
+        RouterLink mySub = new RouterLink("My Submissions", MySubmissionsView.class); //todo: create my submissions
+        RouterLink search = new RouterLink("Search", SearchStudentView.class); //todo: create submission search
 
         addToDrawer(new VerticalLayout(
                 newSub,
-                allSub
+                allSub,
+                mySub,
+                search
         ));
     }
 }

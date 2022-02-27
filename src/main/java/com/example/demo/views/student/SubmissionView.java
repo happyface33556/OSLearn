@@ -14,7 +14,7 @@ import com.vaadin.flow.router.Route;
 import java.util.List;
 import java.util.Vector;
 
-@Route(value = "userSubmission", layout = StudentLayout.class)
+@Route(value = "submission", layout = StudentLayout.class)
 public class SubmissionView extends VerticalLayout {
 
     private Submission repo;
