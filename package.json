@@ -90,7 +90,7 @@
       "webpack-merge": "4.2.2",
       "construct-style-sheets-polyfill": "2.4.6"
     },
-    "hash": "bae026311ffe3cf888dab55bab202f502caaeb85fddd06310faf13cc9db02b72"
+    "hash": "a67151797a7075fa6d703264b6e736f19bcddf0b8e56918f3892f84957a2a1a8"
   },
   "dependencies": {
     "@polymer/iron-a11y-announcer": "3.0.2",
@@ -157,7 +157,8 @@
     "@webcomponents/webcomponentsjs": "^2.2.10",
     "construct-style-sheets-polyfill": "3.0.4",
     "lit-element": "2.5.1",
-    "lit-html": "1.4.1"
+    "lit-html": "1.4.1",
+    "terser": "^5.11.0"
   },
   "devDependencies": {
     "babel-loader": "8.2.2",

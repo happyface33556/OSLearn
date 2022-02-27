@@ -1,20 +1,16 @@
-package com.example.demo;
+package com.example.demo.views;
 
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.UI;
-import com.vaadin.flow.component.login.LoginForm;
 import com.vaadin.flow.component.login.LoginOverlay;
 import com.vaadin.flow.component.notification.Notification;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
-import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.core.Ordered;
 
-@Route("")
+@Route(value = "")
 @PageTitle("Title Page")
-public class MainView extends Composite<LoginOverlay> {
-    public MainView() {
+public class LoginView extends Composite<LoginOverlay> {
+    public LoginView() {
         LoginOverlay loginOverlay = getContent();
         loginOverlay.setTitle("OSLearn");
         loginOverlay.setDescription("Expand your learning!");

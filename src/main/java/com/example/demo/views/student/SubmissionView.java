@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.views.student;
 
 import com.example.demo.Submission;
+import com.example.demo.layouts.StudentLayout;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.html.H1;
@@ -8,13 +9,12 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
-import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 
 import java.util.List;
 import java.util.Vector;
 
-@Route("userSubmission")
+@Route(value = "userSubmission", layout = StudentLayout.class)
 public class SubmissionView extends VerticalLayout {
 
     private Submission repo;
