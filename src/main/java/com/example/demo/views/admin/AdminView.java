@@ -9,23 +9,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.router.Route;
 
-@Route(value = "admin", layout = AdminLayout.class)
+@Route(value = "admin-home", layout = AdminLayout.class) //todo: create an admin home page after login
 public class AdminView extends AppLayout {
-    /*
-    public AdminView() {
-        DrawerToggle toggle = new DrawerToggle();
 
-        H1 title = new H1("Hello Administrator!");
-        title.getStyle()
-                .set("font-size", "var(--lumo-font-size-l)")
-                .set("margin", "0");
-
-        Tab pendingSubs = new Tab("Pending Submissions");
-        Tab allSubs = new Tab("All Submissions");
-
-        addToDrawer(pendingSubs, allSubs);
-        addToNavbar(toggle, title);
-    }
-
-     */
 }

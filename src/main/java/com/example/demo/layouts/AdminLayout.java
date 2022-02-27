@@ -1,8 +1,10 @@
 package com.example.demo.layouts;
 
+import com.example.demo.views.admin.AdminView;
 import com.example.demo.views.admin.AllSubmissionsAdminView;
 import com.example.demo.views.admin.PendingView;
 import com.example.demo.views.admin.SearchAdminView;
+import com.example.demo.views.student.StudentView;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.html.H1;
@@ -29,11 +31,13 @@ public class AdminLayout extends AppLayout {
     }
 
     private void createDrawer() { ////todo: new tabs like MySubmissions, SubmissionSearch, etc.
+        RouterLink home = new RouterLink("Home", AdminView.class); //todo: create home view
         RouterLink newSub = new RouterLink("Pending Submissions", PendingView.class); //todo: PendingSubmissions
         RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsAdminView.class); //todo: allSubmissions
         RouterLink search = new RouterLink("Search", SearchAdminView.class); //todo: create search
 
         addToDrawer(new VerticalLayout(
+                home,
                 newSub,
                 allSub,
                 search

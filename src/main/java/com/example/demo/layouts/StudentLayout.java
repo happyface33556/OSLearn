@@ -1,14 +1,15 @@
 package com.example.demo.layouts;
 
-import com.example.demo.views.student.AllSubmissionsStudentView;
-import com.example.demo.views.student.MySubmissionsView;
-import com.example.demo.views.student.SearchStudentView;
-import com.example.demo.views.student.SubmissionView;
+import com.example.demo.views.student.*;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Router;
 import com.vaadin.flow.router.RouterLink;
 
 public class StudentLayout extends AppLayout {
@@ -24,19 +25,29 @@ public class StudentLayout extends AppLayout {
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");
 
-        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
-        addToNavbar(header);
+        Button button = new Button("New Submission");
+        button.getStyle().set("margin-left", "auto");
+
+        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, button);
+
+        addToNavbar(header, button);
+
+        button.addClickListener(clickEvent -> {
+            UI.getCurrent().navigate("submission");
+        });
 
     }
 
     private void createDrawer() { //todo: new tabs like MySubmissions, SubmissionSearch, etc.
-        RouterLink newSub = new RouterLink("New Submission", SubmissionView.class);
+        RouterLink home = new RouterLink("Home", StudentView.class); //todo: create home view
+        RouterLink myCourse = new RouterLink("My Courses", MyCoursesView.class); //todo: create courses view
         RouterLink allSub = new RouterLink("All Submissions", AllSubmissionsStudentView.class); //todo: create all submissions
         RouterLink mySub = new RouterLink("My Submissions", MySubmissionsView.class); //todo: create my submissions
         RouterLink search = new RouterLink("Search", SearchStudentView.class); //todo: create submission search
 
         addToDrawer(new VerticalLayout(
-                newSub,
+                home,
+                myCourse,
                 allSub,
                 mySub,
                 search
