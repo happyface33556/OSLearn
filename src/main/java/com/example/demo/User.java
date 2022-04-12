@@ -3,10 +3,9 @@ package com.example.demo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -19,6 +18,9 @@ public class User {
 
     private String fname;
     private String lname;
+
+    @OneToMany
+    private Set<Course> courseName;
 
     private Type type;
 
