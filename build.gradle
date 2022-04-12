@@ -26,6 +26,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly('javax.persistence:javax.persistence-api:2.2')
+	annotationProcessor 'org.projectlombok:lombok:1.18.6'
 
 }
 

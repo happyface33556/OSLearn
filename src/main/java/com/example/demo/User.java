@@ -1,14 +1,16 @@
 package com.example.demo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class User {
 
@@ -19,7 +21,8 @@ public class User {
     private String fname;
     private String lname;
 
-    @OneToMany
+    // TODO: Use an Iterable<Course> instead
+    @ManyToMany
     private Set<Course> courseName;
 
     private Type type;
