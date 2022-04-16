@@ -5,6 +5,7 @@ import com.example.demo.CourseRepo;
 import com.example.demo.Submission;
 import com.example.demo.SubmissionRepo;
 import com.example.demo.layouts.StudentLayout;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
@@ -58,6 +59,7 @@ public class SubmissionView extends VerticalLayout {
         setJustifyContentMode(JustifyContentMode.CENTER);
 
         submit.addClickListener(event -> save());
+        submit.addClickShortcut(Key.ENTER);
 
     }
 
