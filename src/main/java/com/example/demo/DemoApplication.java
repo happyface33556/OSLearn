@@ -27,14 +27,23 @@ public class DemoApplication {
 	}
 
 	@Bean
-	CommandLineRunner submissionLoader(UserRepo repo, CourseRepo courseRepo) {
+	CommandLineRunner submissionLoader(UserRepo repo, CourseRepo courseRepo, SubmissionRepo submissionRepo) {
 		return args -> {
 			Course swe = new Course("CEN3031");
 			HashSet<Course> s = new HashSet<Course>();
 			s.add(swe);
 			repo.save(new User((long) 1, "Sanethia", "Thomas", s, User.Type.TEACHER));
-			repo.save(new User((long) 2, "Eric", "McGuirk", s, User.Type.STUDENT));
+
+			User eric = new User((long) 2, "Eric", "McGuirk", s, User.Type.STUDENT);
+			repo.save(eric);
 			Course dsa = new Course("COP3503");
+
+			Submission google = new Submission("www.google.com");
+			google.setOwner(eric);
+			google.setCourseName("COP3503");
+			google.setComments("");
+			submissionRepo.save(google);
+
 		};
 	}
 }
