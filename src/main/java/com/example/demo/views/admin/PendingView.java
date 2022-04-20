@@ -22,19 +22,24 @@ public class PendingView extends VerticalLayout {
     Binder<Submission> binder = new Binder<>(Submission.class);
 
     public PendingView(SubmissionRepo repo) {
-        grid.setColumns("courseName", "link", "comments");
+        grid.setColumns("courseName", "link", "comments", "status");
 
         grid.addColumn(new ComponentRenderer<>(submission -> {
             Button approve = new Button("Approve", event -> {
+                ListDataProvider<Submission> dataProvider =
+                        (ListDataProvider<Submission>) grid.getDataProvider();
                 submission.setStatus(Submission.Status.YES);
-                grid.getDataProvider().refreshItem(submission);
+                repo.save(submission);
+                dataProvider.getItems().remove(submission);
+                dataProvider.refreshAll();
             });
             approve.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
 
             Button reject = new Button("Reject", event -> {
                 ListDataProvider<Submission> dataProvider =
                         (ListDataProvider<Submission>) grid.getDataProvider();
-                repo.delete(submission);
+                submission.setStatus(Submission.Status.NO);
+                repo.save(submission);
                 dataProvider.getItems().remove(submission);
                 dataProvider.refreshAll();;
             });
