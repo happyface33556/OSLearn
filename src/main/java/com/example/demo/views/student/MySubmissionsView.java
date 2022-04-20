@@ -23,9 +23,14 @@ public class MySubmissionsView extends VerticalLayout { //todo:
     Grid<Submission> submissionGrid = new Grid<>(Submission.class);
     public MySubmissionsView(SubmissionRepo repo) {
         submissionGrid.setColumns("courseName", "link", "comments");
+        submissionGrid.addColumn(this::checkApprove).setHeader("Approved?");
         submissionGrid.setItems(repo.findAll());
 
         add(submissionGrid);
 
+    }
+
+    private String checkApprove(Submission submission) {
+        return (submission.getApproval()) ? "Yes" : "No";
     }
 }
