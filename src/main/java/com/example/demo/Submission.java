@@ -26,7 +26,7 @@ public class Submission implements Serializable {
     private String link;
     private String courseName;
     private String comments;
-    private Boolean approval = false;
+    private Status status = Status.PENDING;
 
     @OneToOne
     private User owner;
@@ -36,6 +36,11 @@ public class Submission implements Serializable {
     private int numDislikes = 0;
     private double userScore = 0; //TODO: Decide how to calculate user score using likes and dislikes
 
+    public enum Status {
+        YES,
+        PENDING,
+        NO
+    }
     public Submission(String link) {
         this.link = link;
     }
