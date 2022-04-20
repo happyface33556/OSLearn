@@ -16,7 +16,7 @@ import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route(value = "pending-submissions", layout = AdminLayout.class)
-public class PendingView extends VerticalLayout { //todo:
+public class PendingView extends VerticalLayout {
     Grid<Submission> grid = new Grid<>(Submission.class, false);
 
     Binder<Submission> binder = new Binder<>(Submission.class);
@@ -26,7 +26,7 @@ public class PendingView extends VerticalLayout { //todo:
 
         grid.addColumn(new ComponentRenderer<>(submission -> {
             Button approve = new Button("Approve", event -> {
-                submission.setApproval(Boolean.TRUE);
+                submission.setStatus(Submission.Status.YES);
                 grid.getDataProvider().refreshItem(submission);
             });
             approve.addThemeVariants(ButtonVariant.LUMO_PRIMARY);
@@ -44,7 +44,7 @@ public class PendingView extends VerticalLayout { //todo:
             return buttons;
         })).setHeader("Approve/Reject");
 
-        grid.setItems(repo.findAll());
+        grid.setItems(repo.findAllByStatus(Submission.Status.PENDING));
 
         add(grid);
     }

@@ -9,7 +9,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.util.HashMap;
 
 @Route(value = "my-submissions", layout = StudentLayout.class)
 public class MySubmissionsView extends VerticalLayout { //todo:
@@ -23,14 +23,19 @@ public class MySubmissionsView extends VerticalLayout { //todo:
     Grid<Submission> submissionGrid = new Grid<>(Submission.class);
     public MySubmissionsView(SubmissionRepo repo) {
         submissionGrid.setColumns("courseName", "link", "comments");
-        submissionGrid.addColumn(this::checkApprove).setHeader("Approved?");
+        submissionGrid.addColumn(this::checkStatus).setHeader("Status");
         submissionGrid.setItems(repo.findAll());
 
         add(submissionGrid);
 
     }
 
-    private String checkApprove(Submission submission) {
-        return (submission.getApproval()) ? "Yes" : "No";
+    private String checkStatus(Submission submission) {
+        HashMap<Submission.Status, String> map = new HashMap<>();
+        map.put(Submission.Status.NO, "Rejected");
+        map.put(Submission.Status.PENDING, "Pending");
+        map.put(Submission.Status.YES, "Approved");
+
+        return map.get(submission.getStatus());
     }
 }
