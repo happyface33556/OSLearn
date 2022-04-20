@@ -34,6 +34,7 @@ public class PendingView extends VerticalLayout { //todo:
             Button reject = new Button("Reject", event -> {
                 ListDataProvider<Submission> dataProvider =
                         (ListDataProvider<Submission>) grid.getDataProvider();
+                repo.delete(submission);
                 dataProvider.getItems().remove(submission);
                 dataProvider.refreshAll();;
             });
