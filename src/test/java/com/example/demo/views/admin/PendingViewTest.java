@@ -45,4 +45,11 @@ class PendingViewTest {
         view.reject(repo, google);
         assertEquals(google.getStatus(), Submission.Status.NO);
     }
+
+    @Test
+    public void PendingViewApprove() {
+        PendingView view = new PendingView(repo);
+        view.approve(repo, google);
+        assertEquals(google.getStatus(), Submission.Status.YES);
+    }
 }

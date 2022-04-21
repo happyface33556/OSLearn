@@ -55,4 +55,9 @@ public class PendingView extends VerticalLayout {
         submission.setStatus(Submission.Status.NO);
         repo.save(submission);
     }
+
+    protected void approve(SubmissionRepo repo, Submission submission) {
+        submission.setStatus(Submission.Status.YES);
+        repo.save(submission);
+    }
 }
