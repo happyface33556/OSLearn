@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route(value = "pending-submissions", layout = AdminLayout.class)
 public class PendingView extends VerticalLayout {
     Grid<Submission> grid = new Grid<>(Submission.class, false);
-
+    @SuppressWarnings("unchecked")
     public PendingView(SubmissionRepo repo) {
         grid.setColumns("courseName", "link", "comments", "status");
 
