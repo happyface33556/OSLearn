@@ -16,11 +16,6 @@ class PendingViewTest {
     @Autowired
     private SubmissionRepo repo;
 
-    @Autowired
-    private MockMvc mockMvc;
-
     @Test
-    public void contextLoads() throws Exception {
-        assertThat(repo).isNotNull();
-    }
+    public void contextLoads() {}
 }
