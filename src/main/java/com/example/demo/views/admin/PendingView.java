@@ -51,7 +51,7 @@ public class PendingView extends VerticalLayout {
         add(grid);
     }
 
-    private void reject(SubmissionRepo repo, Submission submission) {
+    protected void reject(SubmissionRepo repo, Submission submission) {
         submission.setStatus(Submission.Status.NO);
         repo.save(submission);
     }
