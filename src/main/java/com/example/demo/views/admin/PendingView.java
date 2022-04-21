@@ -26,8 +26,7 @@ public class PendingView extends VerticalLayout {
             Button approve = new Button("Approve", event -> {
                 ListDataProvider<Submission> dataProvider =
                         (ListDataProvider<Submission>) grid.getDataProvider();
-                submission.setStatus(Submission.Status.YES);
-                repo.save(submission);
+                approve(repo, submission);
                 dataProvider.getItems().remove(submission);
                 dataProvider.refreshAll();
             });
