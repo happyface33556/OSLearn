@@ -40,7 +40,7 @@ class PendingViewTest {
     }
 
     @Test
-    public void PendingViewPopulated() {
+    public void PendingViewReject() {
         PendingView view = new PendingView(repo);
         view.reject(repo, google);
         assertEquals(google.getStatus(), Submission.Status.NO);
