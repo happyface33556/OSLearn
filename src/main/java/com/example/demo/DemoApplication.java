@@ -39,10 +39,15 @@ public class DemoApplication {
 			Course dsa = new Course("COP3503");
 
 			Submission google = new Submission("www.google.com");
+			Submission khanAcademy = new Submission("www.khanacademy.com");
+			khanAcademy.setOwner(eric);
+			khanAcademy.setComments("Useful for a variety of subjects");
 			google.setOwner(eric);
 			google.setCourseName("COP3503");
+			khanAcademy.setCourseName("CEN3031");
 			google.setComments("");
 			submissionRepo.save(google);
+			submissionRepo.save(khanAcademy);
 
 		};
 	}
