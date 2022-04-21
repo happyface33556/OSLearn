@@ -8,5 +8,10 @@ import java.util.ArrayList;
 @Repository
 public interface SubmissionRepo extends JpaRepository<Submission, Long> {
 
-    ArrayList<Submission> findAllByStatus(Submission.Status status);
+    public ArrayList<Submission> findAllByStatus(Submission.Status status);
+
+    public default String getStudentName(Submission submission) {
+        return String.format("%s, %s", submission.getOwner().getLname(),
+                submission.getOwner().getFname());
+    }
 }

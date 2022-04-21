@@ -19,8 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class PendingView extends VerticalLayout {
     Grid<Submission> grid = new Grid<>(Submission.class, false);
 
-    Binder<Submission> binder = new Binder<>(Submission.class);
-
     public PendingView(SubmissionRepo repo) {
         grid.setColumns("courseName", "link", "comments", "status");
 
@@ -38,8 +36,7 @@ public class PendingView extends VerticalLayout {
             Button reject = new Button("Reject", event -> {
                 ListDataProvider<Submission> dataProvider =
                         (ListDataProvider<Submission>) grid.getDataProvider();
-                submission.setStatus(Submission.Status.NO);
-                repo.save(submission);
+                reject(repo, submission);
                 dataProvider.getItems().remove(submission);
                 dataProvider.refreshAll();;
             });
@@ -47,14 +44,15 @@ public class PendingView extends VerticalLayout {
 
             HorizontalLayout buttons = new HorizontalLayout(approve, reject);
             return buttons;
-        })).setHeader("Approve/Reject");
+        })).setHeader("Approve?");
 
         grid.setItems(repo.findAllByStatus(Submission.Status.PENDING));
 
         add(grid);
     }
 
-    private void reject() {
-
+    private void reject(SubmissionRepo repo, Submission submission) {
+        submission.setStatus(Submission.Status.NO);
+        repo.save(submission);
     }
 }
