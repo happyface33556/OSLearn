@@ -1,7 +1,9 @@
 package com.example.demo.layouts;
 
+import com.example.demo.User;
 import com.example.demo.views.LoginView;
 import com.example.demo.views.student.*;
+import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
@@ -23,7 +25,8 @@ public class StudentLayout extends AppLayout {
     }
 
     private void createHeader() {
-        H1 logo = new H1("Welcome to OSLearn!"); //todo: custom message for user
+        User currentUser = ComponentUtil.getData(UI.getCurrent(), User.class);
+        H1 logo = new H1("Welcome to OSLearn, " + currentUser.getFname() + "!");
         logo.getStyle()
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");

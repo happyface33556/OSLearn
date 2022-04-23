@@ -32,10 +32,14 @@ public class DemoApplication {
 			Course swe = new Course("CEN3031");
 			HashSet<Course> s = new HashSet<Course>();
 			s.add(swe);
-			repo.save(new User((long) 1, "Sanethia", "Thomas", s, User.Type.TEACHER));
+			repo.save(new User((long) 1, "Sanethia", "Thomas", "admin", "password", s, User.Type.TEACHER));
 
-			User eric = new User((long) 2, "Eric", "McGuirk", s, User.Type.STUDENT);
+			User eric = new User((long) 2, "Eric", "McGuirk", "ericSWE", "password", s, User.Type.STUDENT);
+			User zach = new User((long) 3, "Zachary", "Deptula", "zachSWE", "password", s, User.Type.STUDENT);
+			User stone = new User((long) 4, "Stone", "Blumauer", "stoneSWE", "password", s, User.Type.STUDENT);
 			repo.save(eric);
+			repo.save(zach);
+			repo.save(stone);
 			Course dsa = new Course("COP3503");
 
 			Submission google = new Submission("www.google.com");
