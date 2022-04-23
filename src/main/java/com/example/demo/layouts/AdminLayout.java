@@ -1,13 +1,12 @@
 package com.example.demo.layouts;
 
 import com.example.demo.views.LoginView;
-import com.example.demo.views.admin.AdminView;
-import com.example.demo.views.admin.AllSubmissionsAdminView;
-import com.example.demo.views.admin.PendingView;
-import com.example.demo.views.admin.SearchAdminView;
+import com.example.demo.views.admin.*;
 import com.example.demo.views.student.StudentView;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
@@ -28,15 +27,27 @@ public class AdminLayout extends AppLayout {
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");
 
-        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo);
-        addToNavbar(header);
 
+        Button button = new Button("Add Course", new Icon(VaadinIcon.PAPERPLANE));
+        button.setIconAfterText(true);
+        button.getStyle().set("margin-left", "auto");
+
+        HorizontalLayout header = new HorizontalLayout(new DrawerToggle(), logo, button);
+
+        addToNavbar(header, button);
+
+        button.addClickListener(clickEvent -> {
+            UI.getCurrent().navigate("add-course");
+
+        });
     }
 
     private void createDrawer() {
         RouterLink home = new RouterLink("Home ", AdminView.class);
         Icon homeIcon = new Icon(VaadinIcon.HOME);
         home.add(homeIcon);
+
+        RouterLink courses = new RouterLink("Courses ", CourseView.class);
 
         RouterLink newSub = new RouterLink("Pending Submissions ", PendingView.class); //todo: PendingSubmissions
         Icon newIcon = new Icon(VaadinIcon.FOLDER_ADD);
@@ -56,6 +67,7 @@ public class AdminLayout extends AppLayout {
 
         addToDrawer(new VerticalLayout(
                 home,
+                courses,
                 newSub,
                 allSub,
                 search,
