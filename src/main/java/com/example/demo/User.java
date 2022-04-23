@@ -20,6 +20,8 @@ public class User {
 
     private String fname;
     private String lname;
+    private String username;
+    private String password;
 
     // TODO: Use an Iterable<Course> instead
     @ManyToMany
@@ -27,7 +29,7 @@ public class User {
 
     private Type type;
 
-    enum Type {
+    public enum Type {
         STUDENT,
         TEACHER,
         ADMINISTRATOR

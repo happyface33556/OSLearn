@@ -27,6 +27,7 @@ public class Submission implements Serializable {
     private String link;
     private String courseName;
     private String comments;
+    private String username;
     private Status status = Status.PENDING;
 
     @OneToOne
@@ -42,8 +43,11 @@ public class Submission implements Serializable {
         PENDING,
         NO
     }
-    public Submission(String link) {
+    public Submission(String link, String courseName, String comments, String username, User owner) {
         this.link = link;
+        this.courseName = courseName;
+        this.comments = comments;
+        this.username = username;
     }
 
 }
