@@ -40,6 +40,7 @@ public class StudentLayout extends AppLayout {
         addToNavbar(header, button);
 
         button.addClickListener(clickEvent -> {
+            ComponentUtil.setData(UI.getCurrent(), User.class, currentUser);
             UI.getCurrent().navigate("submission");
         });
 

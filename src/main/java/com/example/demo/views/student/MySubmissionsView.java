@@ -3,7 +3,10 @@ package com.example.demo.views.student;
 import com.example.demo.CourseRepo;
 import com.example.demo.Submission;
 import com.example.demo.SubmissionRepo;
+import com.example.demo.User;
 import com.example.demo.layouts.StudentLayout;
+import com.vaadin.flow.component.ComponentUtil;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
@@ -24,8 +27,7 @@ public class MySubmissionsView extends VerticalLayout { //todo:
     public MySubmissionsView(SubmissionRepo repo) {
         submissionGrid.setColumns("courseName", "link", "comments");
         submissionGrid.addColumn(this::checkStatus).setHeader("Status");
-        submissionGrid.setItems(repo.findAll());
-
+        submissionGrid.setItems(repo.findByUsername(ComponentUtil.getData(UI.getCurrent(), User.class).getUsername()));
         add(submissionGrid);
 
     }

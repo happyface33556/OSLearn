@@ -29,7 +29,7 @@ public class User {
 
     private Type type;
 
-    enum Type {
+    public enum Type {
         STUDENT,
         TEACHER,
         ADMINISTRATOR

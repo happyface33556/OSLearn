@@ -42,17 +42,14 @@ public class DemoApplication {
 			repo.save(stone);
 			Course dsa = new Course("COP3503");
 
-			Submission google = new Submission("www.google.com");
-			Submission khanAcademy = new Submission("www.khanacademy.com");
-			khanAcademy.setOwner(eric);
-			khanAcademy.setComments("Useful for a variety of subjects");
-			google.setOwner(eric);
-			google.setCourseName("COP3503");
-			khanAcademy.setCourseName("CEN3031");
-			google.setComments("");
+			Submission google = new Submission("www.google.com", "COP3503", "", "ericSWE", eric);
+			Submission khanAcademy = new Submission("www.khanacademy.com", "CEN3031", "Useful for a variety of subjects", "ericSWE", eric);
+			Submission youtube = new Submission("www.youtube.com", "COP3503", "Instructional Videos", "zachSWE", zach);
+			Submission wikipedia = new Submission("wwww.wikipedia.com", "CEN3031", "Open-Source Encyclopedia", "stoneSWE", stone);
+			submissionRepo.save(wikipedia);
+			submissionRepo.save(youtube);
 			submissionRepo.save(google);
 			submissionRepo.save(khanAcademy);
-
 		};
 	}
 }

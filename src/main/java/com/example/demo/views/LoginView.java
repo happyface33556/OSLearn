@@ -33,17 +33,15 @@ public class LoginView extends Composite<LoginOverlay> { //todo: add actual secu
             for (int i = 0; i < users.size(); i++) {
                 if (Objects.equals(users.get(i).getUsername(), event.getUsername()) && Objects.equals(users.get(i).getPassword(), event.getPassword())) {
                     ComponentUtil.setData(UI.getCurrent(), User.class, users.get(i));
-                    UI.getCurrent().navigate("student-home");
+                    if (users.get(i).getType() == User.Type.TEACHER) {
+                        UI.getCurrent().navigate("admin-home");
+                    }
+                    else {
+                        UI.getCurrent().navigate("student-home");
+                    }
                 }
             }
-            /*if ("ericSWE".equals(event.getUsername())) {
-                ComponentUtil.setData(UI.getCurrent(), User.class, eric);
-                UI.getCurrent().navigate("student-home");
-            }*/
-            /*else*/ if ("admin".equals(event.getUsername())) {
-                UI.getCurrent().navigate("admin-home");
-            }
-            else {
+            {
                 loginOverlay.setError(true);
             }
         });
