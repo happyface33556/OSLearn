@@ -45,7 +45,7 @@ public class DemoApplication {
 			Submission google = new Submission("www.google.com", "COP3503", "", "ericSWE", eric);
 			Submission khanAcademy = new Submission("www.khanacademy.com", "CEN3031", "Useful for a variety of subjects", "ericSWE", eric);
 			Submission youtube = new Submission("www.youtube.com", "COP3503", "Instructional Videos", "zachSWE", zach);
-			Submission wikipedia = new Submission("wwww.wikipedia.com", "CEN3031", "Open-Source Encyclopedia", "stoneSWE", stone);
+			Submission wikipedia = new Submission("www.wikipedia.com", "CEN3031", "Open-Source Encyclopedia", "stoneSWE", stone);
 			submissionRepo.save(wikipedia);
 			submissionRepo.save(youtube);
 			submissionRepo.save(google);
