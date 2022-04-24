@@ -25,7 +25,7 @@ public class AdminLayout extends AppLayout {
 
     private void createHeader() {
         User currentUser = ComponentUtil.getData(UI.getCurrent(), User.class);
-        H1 logo = new H1("Welcome to OSLearn, " + currentUser.getFname() + "!"); //todo: custom message for administrator
+        H1 logo = new H1("Welcome to OSLearn, " + currentUser.getFname() + "!");
         logo.getStyle()
                 .set("font-size", "var(--lumo-font-size-l)")
                 .set("margin", "0");
@@ -52,7 +52,7 @@ public class AdminLayout extends AppLayout {
 
         RouterLink courses = new RouterLink("Courses ", CourseView.class);
 
-        RouterLink newSub = new RouterLink("Pending Submissions ", PendingView.class); //todo: PendingSubmissions
+        RouterLink newSub = new RouterLink("Pending Submissions ", PendingView.class);
         Icon newIcon = new Icon(VaadinIcon.FOLDER_ADD);
         newSub.add(newIcon);
 
@@ -60,7 +60,7 @@ public class AdminLayout extends AppLayout {
         Icon allIcon = new Icon(VaadinIcon.ARCHIVES);
         allSub.add(allIcon);
 
-        RouterLink search = new RouterLink("Search ", SearchAdminView.class); //todo: gfcreate search
+        RouterLink search = new RouterLink("Search ", SearchAdminView.class);
         Icon searchIcon = new Icon(VaadinIcon.SEARCH);
         search.add(searchIcon);
 

@@ -29,7 +29,6 @@ public class MySubmissionsView extends VerticalLayout { //todo:
         submissionGrid.addColumn(this::checkStatus).setHeader("Status");
         submissionGrid.setItems(repo.findByUsername(ComponentUtil.getData(UI.getCurrent(), User.class).getUsername()));
         add(submissionGrid);
-
     }
 
     private String checkStatus(Submission submission) {
