@@ -41,6 +41,7 @@ public class DemoApplication {
 			repo.save(zach);
 			repo.save(stone);
 			Course dsa = new Course("COP3503");
+			courseRepo.save(dsa);
 
 			Submission google = new Submission("www.google.com", "COP3503", "", "ericSWE", eric);
 			Submission khanAcademy = new Submission("www.khanacademy.com", "CEN3031", "Useful for a variety of subjects", "ericSWE", eric);
