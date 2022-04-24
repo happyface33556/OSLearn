@@ -11,16 +11,5 @@ import com.vaadin.flow.component.grid.Grid;
 
 
 @Route(value = "courses", layout = AdminLayout.class)
-public class CourseView extends VerticalLayout { //todo:
-
-    Grid<Course> grid = new Grid<>(Course.class, false);
-
-    public CourseView(CourseRepo repo) {
-        grid.addColumn(repo::getCourse).setHeader("Course Name");
-
-        add(grid);
-    }
-
-
-
+public class CourseView extends VerticalLayout {
 }
