@@ -31,7 +31,7 @@ public class AdminLayout extends AppLayout {
                 .set("margin", "0");
 
 
-        Button button = new Button("Add Course", new Icon(VaadinIcon.PAPERPLANE));
+        Button button = new Button("Add Course", new Icon(VaadinIcon.PLUS));
         button.setIconAfterText(true);
         button.getStyle().set("margin-left", "auto");
 
@@ -51,6 +51,8 @@ public class AdminLayout extends AppLayout {
         home.add(homeIcon);
 
         RouterLink courses = new RouterLink("Courses ", CourseView.class);
+        Icon courseIcon = new Icon(VaadinIcon.NOTEBOOK);
+        courses.add(courseIcon);
 
         RouterLink newSub = new RouterLink("Pending Submissions ", PendingView.class);
         Icon newIcon = new Icon(VaadinIcon.FOLDER_ADD);
