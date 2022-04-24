@@ -49,6 +49,9 @@ public class Submission implements Serializable {
         this.comments = comments;
         this.username = username;
     }
+    public String getCourseName() {
+        return this.courseName;
+    }
 
 }
 
