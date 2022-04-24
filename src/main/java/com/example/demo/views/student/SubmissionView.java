@@ -31,6 +31,9 @@ public class SubmissionView extends VerticalLayout {
     TextField commentField = new TextField("Comments");
     Button submit = new Button("Submit");
     VerticalLayout verticalLayout = new VerticalLayout();
+
+
+
     public SubmissionView(Submission repo, CourseRepo courseRepo) {
         binder.bind(linkField, Submission::getLink, Submission::setLink);
         binder.bind(commentField, Submission::getComments, Submission::setComments);
