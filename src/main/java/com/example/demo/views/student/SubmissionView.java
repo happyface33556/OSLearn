@@ -1,10 +1,8 @@
 package com.example.demo.views.student;
 
-import com.example.demo.Course;
-import com.example.demo.CourseRepo;
-import com.example.demo.Submission;
-import com.example.demo.SubmissionRepo;
+import com.example.demo.*;
 import com.example.demo.layouts.StudentLayout;
+import com.vaadin.flow.component.ComponentUtil;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
@@ -33,9 +31,6 @@ public class SubmissionView extends VerticalLayout {
     TextField commentField = new TextField("Comments");
     Button submit = new Button("Submit");
     VerticalLayout verticalLayout = new VerticalLayout();
-
-
-
     public SubmissionView(Submission repo, CourseRepo courseRepo) {
         binder.bind(linkField, Submission::getLink, Submission::setLink);
         binder.bind(commentField, Submission::getComments, Submission::setComments);
@@ -65,6 +60,7 @@ public class SubmissionView extends VerticalLayout {
 
     private void save() {
         Submission submission = binder.getBean();
+        submission.setUsername(ComponentUtil.getData(UI.getCurrent(), User.class).getUsername());
         submissionRepo.save(submission);
         UI.getCurrent().navigate("my-submissions");
     }
