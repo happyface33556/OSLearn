@@ -16,9 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Route(value = "courses", layout = AdminLayout.class)
 public class CourseView extends VerticalLayout {
 
-    @Autowired
-    private SubmissionRepo repo;
-
     public CourseView(SubmissionRepo repo) {
         ArrayList<Submission> submissions = repo.findAllByStatus(Submission.Status.YES);
         ArrayList<String> courseNames = new ArrayList<>();

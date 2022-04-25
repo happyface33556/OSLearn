@@ -41,6 +41,7 @@ public class SearchStudentView extends VerticalLayout {
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
         submit.addClickListener(event -> displaySearchResults());
+        submit.addClickShortcut(Key.ENTER);
     }
 
     private void displaySearchResults() {

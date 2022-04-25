@@ -29,7 +29,7 @@ public class StudentSearchResultView extends VerticalLayout {
         submissionGrid.setColumns("courseName", "link", "comments");
         if (Objects.equals(inquiry.getParameter(), "Links")) {
             String input = inquiry.getInput();
-            submissionGrid.setItems(repo.findByLinkAndStatus(input, Submission.Status.YES));
+            submissionGrid.setItems(repo.findByLinkContainsAndStatus(input, Submission.Status.YES));
         }
         if (Objects.equals(inquiry.getParameter(), "Course Name")) {
             String input = inquiry.getInput();
