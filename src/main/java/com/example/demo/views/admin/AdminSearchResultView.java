@@ -28,18 +28,37 @@ public class AdminSearchResultView extends VerticalLayout {
         submissionGrid.addColumn(this::checkStatus).setHeader("Status");
         if (Objects.equals(inquiry.getParameter(), "Links")) {
             String input = inquiry.getInput();
-            submissionGrid.setItems(repo.findByLink(input));
+            submissionGrid.setItems(repo.findByLinkContains(input));
+            if (repo.findByLinkContains(input).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
         if (Objects.equals(inquiry.getParameter(), "Course Name")) {
             String input = inquiry.getInput();
             submissionGrid.setItems(repo.findByCourseName(input));
+            if (repo.findByCourseName(input).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
         if (Objects.equals(inquiry.getParameter(), "Owner")) {
             String input = inquiry.getInput();
             submissionGrid.setItems(repo.findByUsername(input));
+            if (repo.findByUsername(input).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
-        add(new H1("Search Results"));
-        add(submissionGrid);
         setHeightFull();
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);

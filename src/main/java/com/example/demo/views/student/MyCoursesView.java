@@ -27,9 +27,12 @@ public class MyCoursesView extends VerticalLayout {
         for (int i = 0; i < courseNames.size(); i++) {
             Grid<Submission> submissionGrid = new Grid<>(Submission.class);
             submissionGrid.setColumns("courseName", "link", "comments");
-            submissionGrid.setItems(repo.findByCourseName(courseNames.get(i)));
+            submissionGrid.setItems(repo.findByCourseNameAndStatus(courseNames.get(i), Submission.Status.YES));
             add(new H1(courseNames.get(i)));
             add(submissionGrid);
+        }
+        if (submissions.size() == 0) {
+            add(new H1("No Submissions Available!"));
         }
         setHeightFull();
         setAlignItems(Alignment.CENTER);

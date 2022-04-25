@@ -30,17 +30,36 @@ public class StudentSearchResultView extends VerticalLayout {
         if (Objects.equals(inquiry.getParameter(), "Links")) {
             String input = inquiry.getInput();
             submissionGrid.setItems(repo.findByLinkContainsAndStatus(input, Submission.Status.YES));
+            if (repo.findByLinkContainsAndStatus(input, Submission.Status.YES).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
         if (Objects.equals(inquiry.getParameter(), "Course Name")) {
             String input = inquiry.getInput();
             submissionGrid.setItems(repo.findByCourseNameAndStatus(input, Submission.Status.YES));
+            if (repo.findByCourseNameAndStatus(input, Submission.Status.YES).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
         if (Objects.equals(inquiry.getParameter(), "Owner")) {
             String input = inquiry.getInput();
             submissionGrid.setItems(repo.findByUsernameAndStatus(input, Submission.Status.YES));
+            if (repo.findByUsernameAndStatus(input, Submission.Status.YES).isEmpty()) {
+                add(new H1("No Results Found"));
+            }
+            else {
+                add(new H1("Search Results"));
+                add(submissionGrid);
+            }
         }
-        add(new H1("Search Results"));
-        add(submissionGrid);
         setHeightFull();
         setAlignItems(Alignment.CENTER);
         setJustifyContentMode(JustifyContentMode.CENTER);
